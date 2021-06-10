@@ -101,6 +101,44 @@
       width: 950px;
       margin: 0 auto;
     }
+
+    #menu li { /*날짜들 사이에 선 긋기*/
+      list-style: none;
+      padding-bottom: 10px; /*날짜랑 선 사이의 간격 지정*/
+      border-bottom: 1px solid #cfcfcf;
+    }
+
+    #menu> h1 { /*오늘의 메뉴랑 + 붙인거 space-between으로 +가 넘어간 것을 nowrap으로 컨테이너 안으로 집어넣음*/
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+
+    .open > div:nth-child(2){ /*메뉴 없애기*/
+      display: none;
+    }
+
+    .open > div>span:nth-child(2){ /*아래를 보는 화살표 없애기*/
+      display:none;
+    }
+
+    #menu li:hover>div>span:nth-child(2){ /*호버했을 때 색 바뀌기*/
+      color:orange;
+    }
+
+    .open:hover>div>span:nth-child(3){ /*호버했을 때 위를 보는 화살표 없애기*/
+      display: none;
+    }
+
+    .open:hover>div>span:nth-child(2){ /*호버했을 때 아래를 보는 화살표 띄우기*/
+      display: inline;
+    }
+
+    #menu>div>ul>li>div:first-child { /*날짜와 화살표 거리두기*/
+        display: flex;
+        justify-content: space-between;
+    }
+
   </style>
 </head>
 
