@@ -1,0 +1,57 @@
+*{
+    text-align: center;
+}
+
+.divclass {
+    padding-bottom: 15px;
+    border: 2px solid #282c34;
+    width: calc(50rem);
+    height: auto;
+    display: inline-block;
+}
+
+.itemclass {
+    border-bottom: 1px solid #282c34;
+}
+
+div > h3 {
+    margin: 0px 0px 0px 0px;
+    background-color: #282c34;
+    min-height: 9vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(18px + 2vmin);
+    color: white;
+}
+
+div > form > button {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    background-color: white;
+    outline: none;
+    border: 1px solid #282c34;
+    
+    height: 2.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+}
+
+div > form > label {
+    display: inline-block;
+    min-height: 6vh;
+    background-color: #282c34;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(6px + 2vmin);
+    color: white;
+    padding: 0px 0px 0px 0px;
+}
+
+div > form > input {
+    padding: 10px 25px 10px 25px;
+}
