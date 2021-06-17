@@ -11,7 +11,14 @@
 }
 
 .itemclass {
+    display: inline-block;
+    padding-bottom: 10px;
+    padding-top: 10px;
     border-bottom: 1px solid #282c34;
+}
+
+.checkbtn {
+    display: inline-block;
 }
 
 div > h3 {
@@ -27,7 +34,7 @@ div > h3 {
 }
 
 div > form > button {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     margin-top: 15px;
     background-color: white;
     outline: none;

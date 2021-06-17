@@ -25,8 +25,20 @@ class TodoApp extends React.Component<TodoAppProps, TodoAppState> {
 
   handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if(this.state.newTodo == "")
+      return;
     const items = this.state.todoItems.concat(this.state.newTodo)
 
+    this.setState({
+      todoItems: items,
+      newTodo: "",
+    })
+  }
+
+  handleDelete = (idx:number) => {
+    const items = this.state.todoItems;
+
+    items.splice(idx, 1);
     this.setState({
       todoItems: items,
       newTodo: "",
@@ -44,7 +56,13 @@ class TodoApp extends React.Component<TodoAppProps, TodoAppState> {
         </form>
         {
           this.state.todoItems.map((item, idx) => (
-            <TodoItem name={item} key={idx}/>
+            <div>
+              <TodoItem name={item} key={idx}/>
+              <div className="checkbtn" onClick={(e) => {
+                e.preventDefault();
+                this.handleDelete(idx);
+              }}>✅</div>
+            </div>
           ))
         }
       </div>
