@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import championImage from "../assets/champions.png";
+import championImage from "../assets/champion82.png";
 
 const ChampionWrapper = styled.div<{chmpionId: number}>`
     margin-top: 16px;

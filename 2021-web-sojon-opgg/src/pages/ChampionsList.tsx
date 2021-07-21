@@ -71,11 +71,24 @@ export default class ChampionsList extends React.Component<ChampionListProps, Ch
 
     filterChampions = (type: string) => {
         switch(type){
-            case "TOP": return this.state.allChampions.filter(c => c.position!!.indexOf("탑") > -1);
-            case "JUG": return this.state.allChampions.filter(c => c.position!!.indexOf("정글") > -1);
-            case "MID": return this.state.allChampions.filter(c => c.position!!.indexOf("미드") > -1);
-            case "ADC": return this.state.allChampions.filter(c => c.position!!.indexOf("바텀") > -1);
-            case "SUP": return this.state.allChampions.filter(c => c.position!!.indexOf("서포터") > -1);
+            case "TOP": 
+                document.querySelectorAll("input")[1].value = ""; 
+                return this.state.allChampions.filter(c => c.position!!.indexOf("탑") > -1);
+            case "JUG": 
+                document.querySelectorAll("input")[1].value = ""; 
+                return this.state.allChampions.filter(c => c.position!!.indexOf("정글") > -1);
+            case "MID": 
+                document.querySelectorAll("input")[1].value = ""; 
+                return this.state.allChampions.filter(c => c.position!!.indexOf("미드") > -1);
+            case "ADC": 
+                document.querySelectorAll("input")[1].value = ""; 
+                return this.state.allChampions.filter(c => c.position!!.indexOf("바텀") > -1);
+            case "SUP": 
+                document.querySelectorAll("input")[1].value = ""; 
+                return this.state.allChampions.filter(c => c.position!!.indexOf("서포터") > -1);
+            case "ROTE": 
+                document.querySelectorAll("input")[1].value = ""; 
+                return this.state.allChampions;
             default: return this.state.allChampions;
         }
     }
@@ -84,12 +97,13 @@ export default class ChampionsList extends React.Component<ChampionListProps, Ch
         console.log("searchChampion");
         var temp;
         switch(this.state.type){
-            case "TOP": temp= this.state.allChampions.filter(c => c.position!!.indexOf("탑") > -1); break;
-            case "JUG": temp= this.state.allChampions.filter(c => c.position!!.indexOf("정글") > -1); break;
-            case "MID": temp= this.state.allChampions.filter(c => c.position!!.indexOf("미드") > -1); break;
-            case "ADC": temp= this.state.allChampions.filter(c => c.position!!.indexOf("바텀") > -1); break;
-            case "SUP": temp= this.state.allChampions.filter(c => c.position!!.indexOf("서포터") > -1); break;
-            default: temp= this.state.allChampions; break;
+            case "TOP": temp = this.state.allChampions.filter(c => c.position!!.indexOf("탑") > -1); break;
+            case "JUG": temp = this.state.allChampions.filter(c => c.position!!.indexOf("정글") > -1); break;
+            case "MID": temp = this.state.allChampions.filter(c => c.position!!.indexOf("미드") > -1); break;
+            case "ADC": temp = this.state.allChampions.filter(c => c.position!!.indexOf("바텀") > -1); break;
+            case "SUP": temp = this.state.allChampions.filter(c => c.position!!.indexOf("서포터") > -1); break;
+            case "ROTE": temp = this.state.allChampions; break;
+            default: temp = this.state.allChampions; break;
         }
         if(text === ""){
             return temp;
@@ -109,13 +123,12 @@ export default class ChampionsList extends React.Component<ChampionListProps, Ch
                             <div className={classNames("item", {select: this.state.type === "MID"})} onClick={this.onChangeType("MID")}>미드</div>
                             <div className={classNames("item", {select: this.state.type === "ADC"})} onClick={this.onChangeType("ADC")}>바텀</div>
                             <div className={classNames("item", {select: this.state.type === "SUP"})} onClick={this.onChangeType("SUP")}>서포터</div>
-                            <div className="item rote">로테이션</div>
+                            <div className={classNames("item rote", {select: this.state.type === "ROTE"})} onClick={this.onChangeType("ROTE")}>로테이션</div>
                         </div>
                         <input 
-                            id="input"
-                            type="text" 
-                            placeholder="챔피언 검색(가렌, ㄱㄹ, ...)"
-                            onChange={
+                            type = "text" 
+                            placeholder = "챔피언 검색(가렌, ㄱㄹ, ...)"
+                            onChange = {
                                 (e) => {
                                     this.onChangeInput(e.target.value);
                                 }
