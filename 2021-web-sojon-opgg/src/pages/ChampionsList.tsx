@@ -70,25 +70,14 @@ export default class ChampionsList extends React.Component<ChampionListProps, Ch
     }
 
     filterChampions = (type: string) => {
+        document.querySelectorAll("input")[1].value = ""; 
         switch(type){
-            case "TOP": 
-                document.querySelectorAll("input")[1].value = ""; 
-                return this.state.allChampions.filter(c => c.position!!.indexOf("탑") > -1);
-            case "JUG": 
-                document.querySelectorAll("input")[1].value = ""; 
-                return this.state.allChampions.filter(c => c.position!!.indexOf("정글") > -1);
-            case "MID": 
-                document.querySelectorAll("input")[1].value = ""; 
-                return this.state.allChampions.filter(c => c.position!!.indexOf("미드") > -1);
-            case "ADC": 
-                document.querySelectorAll("input")[1].value = ""; 
-                return this.state.allChampions.filter(c => c.position!!.indexOf("바텀") > -1);
-            case "SUP": 
-                document.querySelectorAll("input")[1].value = ""; 
-                return this.state.allChampions.filter(c => c.position!!.indexOf("서포터") > -1);
-            case "ROTE": 
-                document.querySelectorAll("input")[1].value = ""; 
-                return this.state.allChampions;
+            case "TOP": return this.state.allChampions.filter(c => c.position!!.indexOf("탑") > -1);
+            case "JUG": return this.state.allChampions.filter(c => c.position!!.indexOf("정글") > -1);
+            case "MID": return this.state.allChampions.filter(c => c.position!!.indexOf("미드") > -1);
+            case "ADC": return this.state.allChampions.filter(c => c.position!!.indexOf("바텀") > -1);
+            case "SUP": return this.state.allChampions.filter(c => c.position!!.indexOf("서포터") > -1);
+            case "ROTE": return this.state.allChampions;
             default: return this.state.allChampions;
         }
     }
