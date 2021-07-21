@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components"
-import { isPropertySignature } from "typescript";
 
 const HeaderWrapper = styled.div<{height: number}>`
     width: 100vw;
@@ -21,11 +20,13 @@ const HeaderWrapper = styled.div<{height: number}>`
         align-items: center;
         padding: 0 40px;
     }
+
     & > div:last-child{
         background-color: rgba(0,0,0,0.5);
         color: white;
         padding: 0 80px;
     }
+
 `
 
 const HeaderItemWrapper = styled.div`
@@ -34,10 +35,25 @@ const HeaderItemWrapper = styled.div`
 
 const HeaderItem = styled.div<{active?: boolean}>`
     color: rgba(255, 255, 255, ${(props) => props.active ? 1 : .7});
-    font-weight: bold;
     margin: 0 16px;
     box-shadow: 0px ${(props) => props.active ? -3 : 0}px 0px 0px #fff inset;
     cursor: pointer;
+
+    :hover{
+        color: rgba(255, 255, 255, 1);
+        box-shadow: 0px -3px 0px 0px #fff inset;
+    }
+`
+
+const HeaderPointItem = styled.div<{active?: boolean}>`
+    color: rgba(${(props) => props.active ? 0 : 255}, ${(props) => props.active ? 253 : 255}, ${(props) => props.active ? 237 : 255}, 1);
+    margin: 0 16px;
+    cursor: pointer;
+
+    :hover{
+        color: rgba(255, 255, 255, 1);
+        box-shadow: 0px -3px 0px 0px #fff inset;
+    }
 `
 
 const HeaderInput = styled.div`
@@ -97,11 +113,14 @@ const Header: React.FC<HeaderProps> = (props) => {
                 <HeaderItemWrapper>
                     <HeaderItem>#집에있자</HeaderItem>
                     <HeaderItem active={true}>챔피언 분석</HeaderItem>
-                    <HeaderItem>칼바람</HeaderItem>
-                    <HeaderItem>우르프</HeaderItem>
+                    <HeaderPointItem active={true}>칼바람</HeaderPointItem>
+                    <HeaderPointItem active={true}>우르프</HeaderPointItem>
                     <HeaderItem>통계</HeaderItem>
                     <HeaderItem>랭킹</HeaderItem>
                     <HeaderItem>프로관전</HeaderItem>
+                    <HeaderItem>멀티서치</HeaderItem>
+                    <HeaderItem>OP셜</HeaderItem>
+                    <HeaderItem>커뮤니티</HeaderItem>
                 </HeaderItemWrapper>
                 <HeaderInput>
                     <div>KR</div>

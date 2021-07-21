@@ -1,17 +1,17 @@
 import React from "react";
-import styled from "styled-components"
-import championImage from "../assets/champions.png"
+import styled from "styled-components";
+import championImage from "../assets/champions.png";
 
-const ChampionWrapper = styled.div<{championId: number}>`
+const ChampionWrapper = styled.div<{chmpionId: number}>`
     margin-top: 16px;
 
-    & > div:first-child{
+    & > div:first-child {
         position: relative;
         width: 82px;
         height: 82px;
         border: 1px solid rgba(0, 0, 0, .7);
 
-        & > div.image{
+        & > div.image {
             position: absolute;
             top: 0;
             left: 0;
@@ -19,17 +19,16 @@ const ChampionWrapper = styled.div<{championId: number}>`
             bottom: 0;
 
             background-image: url(${championImage});
-            background-position: 0 -${(props) => props.championId * 82}px;
+            background-position: 0 -${(props) => props.chmpionId * 82}px;
         }
 
-        & > div.position{
+        & > div.position {
             position: absolute;
             right: 0;
             bottom: 0;
             text-align: right;
 
-            & > span{
-                display: inline-block;
+            & > span {
                 background-color: rgba(0, 0, 0, .7);
                 margin-bottom: 5px;
                 font-size: 12px;
@@ -39,7 +38,7 @@ const ChampionWrapper = styled.div<{championId: number}>`
         }
     }
 
-    & > div.name{
+    & > div.name {
         margin-top: 8px;
         font-size: 12px;
         width: 82px;
@@ -49,22 +48,23 @@ const ChampionWrapper = styled.div<{championId: number}>`
     }
 `
 
-interface ChampionProps{
+interface ChampionProps {
     id: number;
     name: string;
     position: string[];
 }
 
 const Champion: React.FC<ChampionProps> = (props) => {
-    return(
-        <ChampionWrapper championId = {props.id}>
+    return (
+        <ChampionWrapper chmpionId={props.id}>
             <div>
                 <div className="image"></div>
                 <div className="position">
                     {props.position.map(p => {
-                        return(
+                        return (
                             <>
-                                <span>{p}</span><br/>
+                                <span>{p}</span>
+                                <br/>
                             </>
                         )
                     })}

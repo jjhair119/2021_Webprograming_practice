@@ -109,7 +109,7 @@ export default class ChampionsList extends React.Component<ChampionListProps, Ch
                             <div className={classNames("item", {select: this.state.type === "MID"})} onClick={this.onChangeType("MID")}>미드</div>
                             <div className={classNames("item", {select: this.state.type === "ADC"})} onClick={this.onChangeType("ADC")}>바텀</div>
                             <div className={classNames("item", {select: this.state.type === "SUP"})} onClick={this.onChangeType("SUP")}>서포터</div>
-                            {/* <div className="item rote">로테이션</div> */}
+                            <div className="item rote">로테이션</div>
                         </div>
                         <input 
                             id="input"
@@ -160,7 +160,7 @@ const ChampionsWrapper = styled.div`
 
             & > .item{
                 line-height: 60px;
-                padding: 0 12px;
+                padding: 0 10px;
                 color: rgba(0, 0, 0, .6);
                 cursor: pointer;
 
@@ -192,7 +192,7 @@ const ChampionsWrapper = styled.div`
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 0 30px;
+        padding: 0 50px;
     }
 `
 
