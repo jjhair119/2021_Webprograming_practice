@@ -165,6 +165,7 @@ const ChampionsWrapper = styled.div`
                 padding: 0 10px;
                 color: rgba(0, 0, 0, .6);
                 cursor: pointer;
+                font-size: 14px;
 
                 &.select{
                     box-shadow: 0px -3px 0px 0px #5383e8 inset;
@@ -185,6 +186,7 @@ const ChampionsWrapper = styled.div`
                 padding: 0 10px;
                 border: none;
                 background-color: #f7f7f7;
+                font-size: 12px;
             }
     }
 

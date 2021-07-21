@@ -29,17 +29,17 @@ const ChampionWrapper = styled.div<{chmpionId: number}>`
             text-align: right;
 
             & > span {
-                background-color: rgba(0, 0, 0, .7);
-                margin-bottom: 5px;
+                background-color: #353b3e;
+                margin-bottom: 2px;
                 font-size: 12px;
                 color: white;
-                padding: 1px;
+                padding: 0px 4px;
             }
         }
     }
 
     & > div.name {
-        margin-top: 8px;
+        margin-top: 4px;
         font-size: 12px;
         width: 82px;
         white-space: nowrap;

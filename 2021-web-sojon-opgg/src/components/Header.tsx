@@ -19,12 +19,21 @@ const HeaderWrapper = styled.div<{height: number}>`
         justify-content: space-between;
         align-items: center;
         padding: 0 40px;
+
+        font-size: 15px;
     }
 
     & > div:last-child{
         background-color: rgba(0,0,0,0.5);
         color: white;
+        font-size: 13px;
         padding: 0 80px;
+
+        cursor: pointer;
+
+        :hover{
+            text-decoration: underline;
+        }
     }
 
 `
@@ -93,6 +102,7 @@ const HeaderInput = styled.div`
         border: none;
         outline: none;
         padding: 0 10px;
+        font-size: 12px;
     }
 
     & img{
