@@ -52,13 +52,14 @@ export default class ChampionsList extends React.Component<ChampionListProps, Ch
     }
 
     onChangeType = (type: string) => () => {
+        console.log("onChangeType");
         this.setState({
             type,
             champions: this.filterChampions(type),
         });
     }
 
-    onChangeInput = (text: string) => () => {
+    onChangeInput = (text: string) => {
         console.log("onChangeInput");
         this.setState({
             champions: this.searchChampion(text),
@@ -77,8 +78,11 @@ export default class ChampionsList extends React.Component<ChampionListProps, Ch
     }
 
     searchChampion = (text: string) => {
+        if(text === ""){
+            return this.state.allChampions;
+        }
         console.log("searchChampion");
-        return this.state.allChampions.filter(c => c.name!!.indexOf(text));
+        return this.state.allChampions.filter(c => c.name!!.indexOf(text) > -1);
     }
 
     render() {
@@ -96,10 +100,9 @@ export default class ChampionsList extends React.Component<ChampionListProps, Ch
                             {/* <div className="item rote">로테이션</div> */}
                         </div>
                         <input 
-                            //className={classNames("input", {select: this.state.text === })}
                             type="text" 
                             placeholder="챔피언 검색(가렌, ㄱㄹ, ...)"
-                            onChange = {
+                            onChange={
                                 (e) => {
                                     this.onChangeInput(e.target.value);
                                 }
