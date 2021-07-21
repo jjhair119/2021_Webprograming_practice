@@ -24,7 +24,6 @@ const HeaderWrapper = styled.div<{height: number}>`
     & > div:last-child{
         background-color: rgba(0,0,0,0.5);
         color: white;
-        font-weight: bold;
         padding: 0 80px;
     }
 `
