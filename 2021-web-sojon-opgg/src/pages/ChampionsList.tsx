@@ -4,6 +4,19 @@ import React from "react";
 import styled from "styled-components";
 import Champion from "../components/Champion";
 import ChampionModel from "../models/ChampionModel";
+import ChampionImage from "../assets/icon-champion-n.png";
+import ChampionTier1 from "../assets/icon-champtier-1.png";
+import ChampionTier2 from "../assets/icon-champtier-2.png";
+import ChampionTier3 from "../assets/icon-champtier-3.png";
+import ChampionTier4 from "../assets/icon-champtier-4.png";
+import ChampionTier5 from "../assets/icon-champtier-5.png";
+import ChampionTierUP from "../assets/icon-championtier-up.png";
+import ChampionTierDOWN from "../assets/icon-championtier-down.png";
+import ChampionTierEQUAL from "../assets/icon-championtier-stay.png";
+import Champion32 from "../assets/champion32.png";
+import ChampionTrendItem from "../components/ChampionTrendItem";
+import ChampionTrendHeader from "../components/ChampionTrendHeader";
+import ChampionTrendToolbar from "../components/ChampionTrendToolbar";
 
 interface ChampionListProps{
 
@@ -140,7 +153,38 @@ export default class ChampionsList extends React.Component<ChampionListProps, Ch
                     </div>
                 </ChampionsWrapper>
                 <ChampionTrendWrapper>
-                    trends
+                    <div className="trendHeader">
+                        <div className="trendTitle">챔피언 순위</div>
+                        <div className="trendItem-wrap">
+                            <div className="trendItem select">
+                                <img src={ChampionImage}/>
+                                티어</div>
+                            <div className="contour"></div>
+                            <div className="trendItem">승률</div>
+                            <div className="contour"></div>
+                            <div className="trendItem">픽률</div>
+                            <div className="contour"></div>
+                            <div className="trendItem">밴률</div>
+                        </div>
+                    </div>
+                    <div className="List">
+                        <ChampionTrendToolbar>
+                            <div hidden={true}>전체</div>
+                            <div className="select">탑</div>
+                            <div>정글</div>
+                            <div>미드</div>
+                            <div>바텀</div>
+                            <div>서포터</div>
+                        </ChampionTrendToolbar>
+                        <ChampionTrendHeader>
+                            <div>#</div>
+                            <div>챔피언</div>
+                            <div>승률</div>
+                            <div>픽률</div>
+                            <div>티어</div>
+                        </ChampionTrendHeader>
+                        <ChampionTrendItem/>
+                    </div>
                 </ChampionTrendWrapper>
             </ChampionListPageWrapper>
         )
@@ -203,4 +247,53 @@ const ChampionsWrapper = styled.div`
 const ChampionTrendWrapper = styled.div`
     flex: 1;   
     background-color: white;
+
+    & > .trendHeader {
+        display: flex;
+        padding: 0 17px;
+        border-bottom: 1px solid #e9eff4;
+        justify-content: space-between;
+        font-size: 14px;
+
+        & > .trendTitle {
+            line-height: 60px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        & > .trendItem-wrap {
+            display: flex;
+            align-items: center;
+
+            & > .select{
+                box-shadow: 0px -3px 0px 0px #5383e8 inset;
+                color: #5383e8;
+                font-weight: bold;
+            }
+
+            & > .trendItem {
+                line-height: 60px;
+                padding: 0 5px;
+                cursor: pointer;
+            }
+            
+            & > .contour {
+                margin: 0 5px;
+                padding: 0 1px;
+                display: flex;
+                height: 14px;
+                border-left: 1px solid #f2f3f5;
+            }
+
+            & > :first-child > img {
+                margin-right: 3px;
+            }
+        }
+    }
+
+    & > .List {
+        height: 100vh;
+        background-color: #f7f7f7;
+        padding: 20px;
+    }
 `
