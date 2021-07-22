@@ -22,6 +22,6 @@ const ChampionTrendToolbar = styled.div`
             color: black;
         }
     }
-`
+` 
 
 export default ChampionTrendToolbar;
