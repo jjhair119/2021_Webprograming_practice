@@ -19,13 +19,19 @@ const ChampionTrendHeader = styled.div`
             font-size: 12px;
 
             &:nth-child(1) {
+                order: -1;
                 flex: 0.5;
                 text-align: center;
             }
 
             &:nth-child(2) {
+                order: -1;
                 flex: 3;
             }
+        }
+
+        & > .select{
+            order: -1;
         }
 `
 

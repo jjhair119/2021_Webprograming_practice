@@ -17,7 +17,9 @@ interface ChampionTrendItemProps {
     win: string;
     pick: string;
     tier: string;
+    ban: string;
     rank: string;
+    type: string;
 }
 
 const ChampionTrendItemWrapper = styled(ChampionTrendHeader)`
@@ -31,12 +33,14 @@ const ChampionTrendItemWrapper = styled(ChampionTrendHeader)`
     & > .rank {
         font-style: italic;
         font-size: 20px;
+        order: -1;
     }
 
     & > .champ {
         display: flex;
         align-items: center;
         text-align: left;
+        order: -1;
 
         & > .change {
             width: 40px;
@@ -79,6 +83,11 @@ const ChampionTrendItemWrapper = styled(ChampionTrendHeader)`
         }
 
     }
+
+    & > .select{
+        order: -1;
+        color: #5383e8;
+    }
 `
 
 const ChampionTrendItem: React.FC<ChampionTrendItemProps> = (props) => {
@@ -98,8 +107,8 @@ const ChampionTrendItem: React.FC<ChampionTrendItemProps> = (props) => {
             <div className="rank">{props.rank}</div>
             <div className="champ">
                 <div className={classNames("change", {up: props.change > 0, down: props.change < 0})}>
-                    <img src={getTierChangeIcon()} alt=""/>
-                    {Math.abs(props.change)}
+                    <img src={getTierChangeIcon()} alt=""  hidden={props.type !== "tier"}/>
+                    <span  hidden={props.type !== "tier"}>{Math.abs(props.change)}</span>
                 </div>
                 <div className={`champ-img __spc32-${props.championID}`}>
                 </div>
@@ -108,9 +117,10 @@ const ChampionTrendItem: React.FC<ChampionTrendItemProps> = (props) => {
                     <div>{props.position}</div>
                 </div>
             </div>
-            <div className="win">{props.win}</div>
-            <div className="pick">{props.pick}</div>
-            <div className="tier">
+            <div className={classNames("win", {select: props.type === "winratio"})} hidden={props.type === "banratio"}>{props.win}</div>
+            <div className={classNames("pick", {select: props.type === "pickratio"})}  hidden={props.type === "banratio"}>{props.pick}</div>
+            <div className={classNames("ban", {select: props.type === "banratio"})}  hidden={props.type !== "banratio"}>{props.ban}</div>
+            <div className="tier" hidden={props.type !== "tier"}>
                 <img src={props.tier} alt=""/>
             </div>
         </ChampionTrendItemWrapper>
