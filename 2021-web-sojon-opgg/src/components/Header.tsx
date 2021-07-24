@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components"
 
 const HeaderWrapper = styled.div<{height: number}>`
-    width: 100vw;
+    width: 100%;
     height: ${(props) => props.height}px;
+    white-space: nowrap;
 
     display: flex;
     flex-direction: column;
@@ -18,7 +19,7 @@ const HeaderWrapper = styled.div<{height: number}>`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 40px;
+        padding: 0 300px;
 
         font-size: 15px;
     }
@@ -27,7 +28,7 @@ const HeaderWrapper = styled.div<{height: number}>`
         background-color: rgba(0,0,0,0.5);
         color: white;
         font-size: 13px;
-        padding: 0 80px;
+        padding: 0 430px;
 
         cursor: pointer;
 
@@ -66,17 +67,18 @@ const HeaderPointItem = styled.div<{active?: boolean}>`
 `
 
 const HeaderInput = styled.div`
+    margin-right: 16px;
     display: flex;
     align-items: center;
     background-color: white;
-    height: 40px;
+    height: 32px;
     border-radius: 5px;
 
     & > div:first-child {
         color: #4171d6;
         position: relative;
         background-color: #ecf2ff;
-        line-height: 40px;
+        line-height: 32px;
         padding: 0 12px;
         padding-right: 30px;
         font-size: 13px;
@@ -140,7 +142,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                     </div>
                 </HeaderInput>
             </div>
-            <div>해당 사이트는 교육을 위해 클론코딩 된 것 입니다.</div>
+            <div>지민경의 피 땀 눈물이 들어간 해당 사이트는 교육을 위해 클론코딩 된 것 입니다.</div>
         </HeaderWrapper>
     );
 }

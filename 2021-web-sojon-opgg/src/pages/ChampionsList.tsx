@@ -27,10 +27,10 @@ interface ChampionListState{
 }
 
 const ChampionListPageWrapper = styled.div`
-    display: flex;
     width: 1080px;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 40px;
+    display: flex;
 `
 
 // List of champion page
@@ -154,6 +154,7 @@ export default class ChampionsList extends React.Component<ChampionListProps, Ch
     render() {
         return(
             <ChampionListPageWrapper>
+                {/* <div>챔피언 분석은 플래티넘 티어 이상의 랭크 게임만을 수집합니다</div> */}
                 <ChampionsWrapper>
                     <div className="header">
                         <div className="item-wrap">
@@ -244,21 +245,23 @@ export default class ChampionsList extends React.Component<ChampionListProps, Ch
 }
 
 const ChampionsWrapper = styled.div`
+    width: 605px;
     border-right: 1px solid #e9eff4;
 
     & > .header{
         background-color: white;
         display: flex;
         justify-content: space-between;
-        padding: 0 17px;
+        padding-left: 17px;
+        padding-right: 8px;
         border-bottom: 1px solid #e9eff4;
 
         & > .item-wrap{
             display: flex;
 
             & > .item{
-                line-height: 60px;
-                padding: 0 10px;
+                line-height: 51px;
+                padding: 0 8px;
                 color: rgba(0, 0, 0, .6);
                 cursor: pointer;
                 font-size: 14px;
@@ -277,13 +280,12 @@ const ChampionsWrapper = styled.div`
         }
 
         & > input {
-                width: 200px;
-                margin: 10px 0;
-                padding: 0 10px;
-                border: none;
-                background-color: #f7f7f7;
-                font-size: 12px;
-            }
+            margin: 8px 0;
+            padding: 10px 30px 10px 10px;
+            border: none;
+            background-color: #f7f7f7;
+            font-size: 12px;
+        }
     }
 
     & > .list{
@@ -292,7 +294,7 @@ const ChampionsWrapper = styled.div`
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 0 50px;
+        padding: 14px 20.5px;
     }
 `
 
@@ -308,7 +310,7 @@ const ChampionTrendWrapper = styled.div`
         font-size: 14px;
 
         & > .trendTitle {
-            line-height: 60px;
+            line-height: 51px;
             font-weight: bold;
             color: #222;
         }
@@ -324,7 +326,7 @@ const ChampionTrendWrapper = styled.div`
             }
 
             & > .trendItem {
-                line-height: 60px;
+                line-height: 51px;
                 padding: 0 5px;
                 cursor: pointer;
             }
@@ -338,7 +340,11 @@ const ChampionTrendWrapper = styled.div`
             }
 
             & > :first-child > img {
-                margin-right: 3px;
+                margin-right: 4px;
+                width: 14px;
+                height: 17px;
+                vertical-align: middle;
+                margin-top: -2px;
             }
         }
     }
