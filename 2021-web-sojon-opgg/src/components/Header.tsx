@@ -75,6 +75,7 @@ const HeaderInput = styled.div`
     border-radius: 5px;
 
     & > div:first-child {
+        font-weight: 500;
         color: #4171d6;
         position: relative;
         background-color: #ecf2ff;
@@ -103,7 +104,7 @@ const HeaderInput = styled.div`
     & > input{
         border: none;
         outline: none;
-        padding: 0 10px;
+        padding: 9px 42px 8px 14px;
         font-size: 12px;
     }
 

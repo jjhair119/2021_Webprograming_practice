@@ -325,6 +325,10 @@ const ChampionTrendWrapper = styled.div`
                 font-weight: bold;
             }
 
+            & > :not(.select){
+                color: #777;
+            }
+
             & > .trendItem {
                 line-height: 51px;
                 padding: 0 5px;
@@ -332,7 +336,7 @@ const ChampionTrendWrapper = styled.div`
             }
             
             & > .contour {
-                margin: 0 5px;
+                margin: 0 8px;
                 padding: 0 1px;
                 display: flex;
                 height: 14px;
